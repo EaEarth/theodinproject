@@ -1,9 +1,9 @@
 class CustomPublicExceptions < ActionDispatch::PublicExceptions
-  def call(env)
-    status = env["PATH_INFO"][1..-1]
+  def call(en)
+    status = en["PATH_INFO"][1..-1]
     puts "some_change"
     if status == "404"
-      Rails.application.routes.call(env)
+      Rails.application.routes.call(en)
     else
       super
     end
